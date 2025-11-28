@@ -1,31 +1,20 @@
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: #f3f3f3;
-}
-
-.container {
-  width: 500px;
-  height: 400px;
-  background: #eaeaea;
-  border: 3px solid #333;
-  position: relative; /* REQUIRED for boundaries */
-  padding: 10px;
-}
-
-.cube {
-  width: 80px;
-  height: 80px;
-  background: steelblue;
-  border-radius: 8px;
-  position: absolute; /* Required for movement */
+.items {
+  width: 600px;
+  overflow: scroll;
+  white-space: nowrap;
+  border: 2px solid #000;
   cursor: grab;
-  transition: background 0.2s;
 }
 
-.cube:active {
-  cursor: grabbing;
-  background: rgb(75, 132, 198);
+.item {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  background: skyblue;
+  border: 2px solid #333;
+  line-height: 200px;
+  text-align: center;
+  font-size: 40px;
+  user-select: none;
 }
