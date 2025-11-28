@@ -1,13 +1,12 @@
 const slider = document.querySelector('.items');
+
 let isDown = false;
 let startX;
 let scrollLeft;
 
 slider.addEventListener('mousedown', (e) => {
   isDown = true;
-  slider.classList.add('active');
-
-  startX = e.pageX;           // FIXED: do NOT subtract offsetLeft
+  startX = e.pageX;                  // FIX: use pageX for Cypress
   scrollLeft = slider.scrollLeft;
 });
 
@@ -22,9 +21,8 @@ slider.addEventListener('mouseup', () => {
 slider.addEventListener('mousemove', (e) => {
   if (!isDown) return;
 
-  e.preventDefault();
-
   const x = e.pageX;
-  const walk = (x - startX) * 1; 
-  slider.scrollLeft = scrollLeft - walk;
+  const walk = x - startX;
+
+  slider.scrollLeft = scrollLeft - walk;   // left drag => positive scroll
 });
